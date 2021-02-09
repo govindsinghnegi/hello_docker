@@ -1,9 +1,6 @@
-# hello_docker
-the day-to-day commands that one often use
+docker-machine ls								#List your machines
 
-$ docker-machine ls								#List your machines
-
-$ docker-machine rm my-docker-machine			# remove each machine
+docker-machine rm my-docker-machine				#remove each machine
 
 docker build -t friendlyname .  				# Create image using this directory's Dockerfile
 
@@ -11,12 +8,11 @@ docker run -p 4000:80 friendlyname  			# Run "friendlyname" mapping port 4000 to
 
 docker run -d -p 4000:80 friendlyname         	# Same thing, but in detached mode
 
-$ docker run -it <image> /bin/bash				# run in interactive mode
+docker run -it <image> /bin/bash				# run in interactive mode
 
-$ docker run -d -P --name web -v /webapp training/webapp python app.py	# create a new volume inside a container at /webapp (in linux)
+docker run -d -P --name web -v /webapp training/webapp python app.py	# create a new volume inside a container at /webapp (in linux)
 
-$ docker run -d -P --name web -v /src/webapp:/webapp training/webapp python app.py	# mount a directory from your Docker engine’s 
-host into a container.
+docker run -d -P --name web -v /src/webapp:/webapp training/webapp python app.py	# mount a directory from your Docker engine’s host into a container.
 
 docker ps                      	# See a list of all running containers
 
@@ -44,9 +40,7 @@ docker push username/repository:tag         # Upload tagged image to registry
 
 docker run username/repository:tag          # Run image from a registry
 
-docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG] # to add a tag to a docker image. Tags typically will include the version of the code 
-and the base operating system used for the image.  For example the official Node.js Docker images are tagged using 
-node:{Node_Version}-{Operating_System}.
+docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG] # to add a tag to a docker image. Tags typically will include the version of the code and the base operating system used for the image. For example the official Node.js Docker images are tagged using node:{Node_Version}-{Operating_System}.
 
 
 ####################containers as services################################
@@ -62,14 +56,12 @@ docker stack ps <appname>   			# List the running containers associated with an 
 
 docker stack rm <appname>               # Tear down an application
 
-
 #####################mounting volumes to containers###########################
 
-$ docker inspect web			# locate the volume on the host by utilizing the docker inspect command
+docker inspect web								# locate the volume on the host by utilizing the docker inspect command
 
-$ docker run -v c:\<path>:c:\<container path>		# On Windows, mount directories using (does not work, need to do the 
-volume mount manually)	
+docker run -v c:\<path>:c:\<container path>		# On Windows, mount directories using (does not work, need to do the volume mount manually)	
 
-$ docker volume ls						#	list
+docker volume ls								#	list
 
 	
